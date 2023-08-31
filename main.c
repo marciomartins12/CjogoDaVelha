@@ -2,36 +2,67 @@
 #include <stdlib.h>
 #include <locale.h>
 
-char tralha0[3];
-char tralha1[3];
-char tralha2[3];
+char tralha[3][3];
+
 
 int main(void){
 
 
-int vez = 0, quantidadeDeJogadas = 0;
-char parar = 'n', playerUM = 'X', playerDois = 'O';
+int vez = 0, quantidadeDeJogadas = 0, coluna, linha;
+char parar = 'n', playerDaVez;
 
 
 setlocale(LC_ALL, "Portuguese");
 do{
-	printf("\t 0    1    2\n");
+	printf("\t 1    2    3\n");
 	printf("\n");
-	printf("\t0  %c | %c  | %c\n", tralha0[0], tralha0[1], tralha0[2]);
+	printf("\t1  %c | %c  | %c\n", tralha[0][0], tralha[0][1], tralha[0][2]);
 	printf("\t  ------------\n");
-	printf("\t1  %c | %c  | %c\n", tralha1[0], tralha1[1], tralha1[2]);
+	printf("\t2  %c | %c  | %c\n", tralha[1][0], tralha[1][1], tralha[1][2]);
 	printf("\t  ------------\n");
-	printf("\t2  %c | %c  | %c\n", tralha2[0], tralha2[1], tralha2[2]);
-int x;	
+	printf("\t3  %c | %c  | %c\n", tralha[2][0], tralha[2][1], tralha[2][2]);
+	
+int x= 0, j=0;	
 for(x = 0 ; x < 3 ; x++){
-tralha0[x] =' ';
-tralha1[x] =' ';
-tralha2[x] =' ';	
+for(j=0; j<3; j++){
+tralha[x][j] =' ';
+tralha[x][j] =' ';
+tralha[x][j] =' ';	
+}
 }	
 
-for(quantidadeDeJogadas = 0 ; quantidadeDeJogadas < 10 ; quantidadeDeJogadas ++ && vez++ ){
-	printf("%d e %d\n", quantidadeDeJogadas, vez);
+for(quantidadeDeJogadas = 0, vez = 0  ; quantidadeDeJogadas < 10 ; quantidadeDeJogadas ++, vez++ ){
+
+	if(vez%2 == 0 ){
+		playerDaVez = 'X';
+		
+	}else if(vez%2 > 0){
+		playerDaVez = 'O';
+	}
+	printf("\n\n\nEscolha a linha e a coluna\n");
+	printf("vez do jogador %c\n", playerDaVez);
 	
+	printf("\tlinha:");
+	scanf("%d", &linha);
+	
+	printf("\n\tcoluna:");
+	scanf("%d", &coluna);
+	
+	linha+=1;
+	coluna+=1;
+	printf("linha : %d\n coluna: %d\n", linha, coluna);
+	tralha[linha][coluna]=playerDaVez;
+	
+	printf("\t 1    2    3\n");
+	printf("\n");
+	printf("\t1  %c | %c  | %c\n", tralha[0][0], tralha[0][1], tralha[0][2]);
+	printf("\t  ------------\n");
+	printf("\t2  %c | %c  | %c\n", tralha[1][0], tralha[1][1], tralha[1][2]);
+	printf("\t  ------------\n");
+	printf("\t3  %c | %c  | %c\n", tralha[2][0], tralha[2][1], tralha[2][2]);
+	
+	
+	getchar();
 }
 	
 	getchar();
