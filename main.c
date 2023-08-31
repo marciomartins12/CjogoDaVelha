@@ -3,7 +3,7 @@
 #include <locale.h>
 
 char tralha[3][3];
-
+char vitoria = ' ';
 
 int main(void){
 
@@ -39,6 +39,7 @@ for(quantidadeDeJogadas = 0, vez = 0  ; quantidadeDeJogadas < 10 ; quantidadeDeJ
 	}else if(vez%2 > 0){
 		playerDaVez = 'O';
 	}
+	
 	printf("\n\n\nEscolha a linha e a coluna\n");
 	printf("vez do jogador %c\n", playerDaVez);
 	
@@ -61,6 +62,16 @@ for(quantidadeDeJogadas = 0, vez = 0  ; quantidadeDeJogadas < 10 ; quantidadeDeJ
 	system("cls");
 	
 	vez-=1;
+	printf("\n Digite um local vazio.\n");
+	printf("\t 1    2    3\n");
+	printf("\n");
+	printf("\t1  %c | %c  | %c\n", tralha[0][0], tralha[0][1], tralha[0][2]);
+	printf("\t  ------------\n");
+	printf("\t2  %c | %c  | %c\n", tralha[1][0], tralha[1][1], tralha[1][2]);
+	printf("\t  ------------\n");
+	printf("\t3  %c | %c  | %c\n", tralha[2][0], tralha[2][1], tralha[2][2]);
+	
+	
 	printf("\n\n\nEscolha a linha e a coluna\n");
 	printf("vez do jogador %c\n", playerDaVez);
 	
@@ -73,6 +84,28 @@ for(quantidadeDeJogadas = 0, vez = 0  ; quantidadeDeJogadas < 10 ; quantidadeDeJ
 	linha-=1;
 	coluna-=1;
 	
+	}
+	// vitoria em linha
+	if(	tralha[0][0]==playerDaVez && tralha[0][1]==playerDaVez && tralha[0][2]==playerDaVez){
+		vitoria = playerDaVez;
+	}else if(tralha[1][0]==playerDaVez && tralha[1][1]==playerDaVez && tralha[1][2]==playerDaVez){
+		vitoria = playerDaVez;
+	}else if(tralha[2][0]==playerDaVez && tralha[2][1]==playerDaVez && tralha[2][2]==playerDaVez){
+		vitoria = playerDaVez;
+	}
+	//vitoria em coluna
+	else if(tralha[0][0]==playerDaVez && tralha[1][0]==playerDaVez && tralha[2][0]==playerDaVez){
+		vitoria = playerDaVez;
+	}else if(tralha[0][1]==playerDaVez && tralha[1][1]==playerDaVez && tralha[2][1]==playerDaVez){
+		vitoria = playerDaVez;
+	}else if(tralha[0][2]==playerDaVez && tralha[1][2]==playerDaVez && tralha[2][2]==playerDaVez){
+		vitoria = playerDaVez;
+	}
+	//vitoria vertical
+	else if(tralha[0][0]==playerDaVez && tralha[1][1]==playerDaVez && tralha[2][2]==playerDaVez){
+		vitoria = playerDaVez;
+	}	else if(tralha[0][2]==playerDaVez && tralha[1][1]==playerDaVez && tralha[2][0]==playerDaVez){
+		vitoria = playerDaVez;
 	}
 	
 	
@@ -87,7 +120,6 @@ for(quantidadeDeJogadas = 0, vez = 0  ; quantidadeDeJogadas < 10 ; quantidadeDeJ
 	printf("\t3  %c | %c  | %c\n", tralha[2][0], tralha[2][1], tralha[2][2]);
 	
 	
-	getchar();
 }
 	
 	getchar();
@@ -98,5 +130,6 @@ for(quantidadeDeJogadas = 0, vez = 0  ; quantidadeDeJogadas < 10 ; quantidadeDeJ
 	
 	system("cls");
 }while(parar != 'n');
+
 	return 0;
 }
