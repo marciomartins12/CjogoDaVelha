@@ -48,10 +48,35 @@ for(quantidadeDeJogadas = 0, vez = 0  ; quantidadeDeJogadas < 10 ; quantidadeDeJ
 	printf("\n\tcoluna:");
 	scanf("%d", &coluna);
 	
-	linha+=1;
-	coluna+=1;
-	printf("linha : %d\n coluna: %d\n", linha, coluna);
-	tralha[linha][coluna]=playerDaVez;
+	linha-=1;
+	coluna-=1;
+	
+	
+	if(	tralha[linha][coluna]==' '){
+		
+	tralha[linha][coluna]=playerDaVez;	
+	
+	}else{
+		
+	system("cls");
+	
+	vez-=1;
+	printf("\n\n\nEscolha a linha e a coluna\n");
+	printf("vez do jogador %c\n", playerDaVez);
+	
+	printf("\tlinha:");
+	scanf("%d", &linha);
+	
+	printf("\n\tcoluna:");
+	scanf("%d", &coluna);
+	
+	linha-=1;
+	coluna-=1;
+	
+	}
+	
+	
+	system("cls");
 	
 	printf("\t 1    2    3\n");
 	printf("\n");
