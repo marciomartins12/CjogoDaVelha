@@ -10,7 +10,7 @@ void exibeTabela() {
     system("cls");
     
 
-    printf("Jogo da Velha\n\n");
+    printf("\nJogo da Velha\n\n");
     printf("\t  1     2    3 \n");
     printf("\t1 %c  |  %c  | %c\n", tabela[0][0], tabela[0][1], tabela[0][2]);
     printf("\t   ------------\n");
@@ -67,17 +67,19 @@ int main() {
     exibeTabela();
 
     while (1) {
-        printf(" Jogador %s = \'%c\', escolha uma linha: ", jogador == 'X'? player1 : player2, jogador);
-        scanf("%d", &linha);
-        printf(" Jogador %s = \'%c\', escolha uma Coluna: ", jogador == 'X'? player1 : player2, jogador);
-		scanf("%d", &coluna);
+        printf(" Jogador %s = \'%c\'\nescolha uma linha: ", jogador == 'X'? player1 : player2, jogador);
+       	 scanf("%d", &linha);
+        printf("\nEscolha uma Coluna: ");
+			scanf("%d", &coluna);
+		
         if (linha >= 1 && linha <= 3 && coluna >= 1 && coluna <= 3 && tabela[linha - 1][coluna - 1] == ' ') {
             tabela[linha - 1][coluna - 1] = jogador;
             jogadas++;
             exibeTabela();
 
             if (verificarVitoria(jogador)) {
-                printf("Jogador %c venceu!\n", jogador);
+                printf("Jogador %s venceu!\n", jogador=='X'? player1 : player2);
+                printf("Fica pra proxima %s", jogador != 'x'? player2 : player1);
                 break;
             }
 
@@ -89,7 +91,9 @@ int main() {
             jogador = (jogador == 'X') ? 'O' : 'X';
             
         } else {
-            printf("Jogada inválida. Tente novamente.\n");
+        	system("cls");
+        	exibeTabela();
+            printf("Jogada inválida\n Tente em um local vazio.\n");
         }
     }
 
