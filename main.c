@@ -52,7 +52,8 @@ int main() {
 	printf("Digite o Nome do PLayer 2 : ");
 		scanf("%s", &player2
 	);
-	
+	 char continuar ='s';
+do{	
     int i,j;
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
@@ -65,6 +66,7 @@ int main() {
     int jogadas = 0;
 
     exibeTabela();
+
 
     while (1) {
         printf(" Jogador %s = \'%c\'\nescolha uma linha: ", jogador == 'X'? player1 : player2, jogador);
@@ -96,6 +98,9 @@ int main() {
             printf("Jogada inválida\n Tente em um local vazio.\n");
         }
     }
+    printf("Reiniciar? :[s n]");
+    scanf("%c", &continuar);
+    }while(continuar == 'n');
 
     return 0;
 }
