@@ -98,9 +98,9 @@ do{
             printf("Jogada inválida\n Tente em um local vazio.\n");
         }
     }
-    printf("Reiniciar? :[s n]");
-    scanf("%c", &continuar);
-    }while(continuar == 'n');
+    printf("\nReiniciar? :[s n]");
+    scanf("%s", &continuar);
+    }while(continuar != 'n');
 
     return 0;
 }
